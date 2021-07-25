@@ -1,1 +1,0 @@
-Our first ALX team project. We are going to learn printf in more detail.
