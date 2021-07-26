@@ -4,12 +4,9 @@
 #define BIT_SIZE 8
 #define true 1
 #define false 0
+
 typedef unsigned int bool;
-/*
- *  *   a local buffer which will be used
- *   *   to store data until a syscall is made to write it
- *    *   in the std out
- *     */
+
 #define BUFFER_SIZE 1024
 
 #include <stdarg.h>
@@ -17,27 +14,28 @@ typedef unsigned int bool;
 #include <unistd.h>
 
 /**
- * *struct printing_format - a struct for formating info
- * *@flag: the flag used (+, -, '\0')
- * *@width: the space taken during printing
- * *@mod: modifier (l, h)
- * *@precision: how manyt points after . in case of f
- * *@zero_fill: --
- * *@replaced: the total amount the format is holding
- * *@validity: is this format a complete format
- * *@printer: a function to handle the printing
- * */
+ * struct printing_format - a struct for formating info
+ * @flag: the flag used (+, -, '\0')
+ * @width: the space taken during printing
+ * @mod: modifier (l, h)
+ * @precision: how manyt points after . in case of f
+ * @zero_fill: --
+ * @replaced: the total amount the format is holding
+ * @validity: is this format a complete format
+ * @printer: a function to handle the printing
+ */
 typedef struct printing_format
 {
-		char flag;
-			int width;
-				char mod;
-					int precision;
-						bool zero_fill;
-							int replaced;
-								bool validity;
-									char *(*printer)(va_list, struct printing_format *);
+	char flag;
+	int width;
+	char mod;
+	int precision;
+	bool zero_fill;
+	int replaced;
+	bool validity;
+	char *(*printer)(va_list, struct printing_format *);
 } printing_format;
+
 /*printer functions*/
 char *_putchar(va_list, printing_format *);
 char *_putstr(va_list, printing_format *);
@@ -84,4 +82,4 @@ void _toStr(unsigned long int, char *);
 char *_strcpy(char *, char *);
 char *rot13(char *);
 
-#endif /*PINTF*/
+#endif /*PRINTF*/
