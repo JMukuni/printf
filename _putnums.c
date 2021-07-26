@@ -12,7 +12,6 @@ char *_putint(va_list num, printing_format *format)
 	long int n;
 	int len, strwid;
 
-	/since shorts are auto casted to int on appending to va_list/
 	if (mod == 'l')
 		n = va_arg(num, long);
 	else
@@ -20,9 +19,7 @@ char *_putint(va_list num, printing_format *format)
 
 	len = _numLen(n >= 0 ? n : -1 * n);
 	nums = malloc(sizeof(char) * max(len, format->width) + 2);
-	/create a manipulating pointer/
 	_nums = nums;
-
 	strwid = len;
 	if (n < 0 || format->flag == '+')
 		strwid += 1;
@@ -43,7 +40,6 @@ char *_putint(va_list num, printing_format *format)
 		if (n > 0)
 			*_nums = ' ', _nums += 1;
 
-	/change the number to a reversed string and reverse it/
 	_toStr(n >= 0 ? n : -1 * n, _nums);
 	*(_nums + len) = '\0';
 	rev_string(_nums);
@@ -63,7 +59,6 @@ char *_putuint(va_list num, printing_format *format)
 	unsigned long int n;
 	int len, strwid;
 
-	/since shorts are auto casted to int on appending to va_list/
 	if (mod == 'l')
 		n = va_arg(num, unsigned long);
 	else
