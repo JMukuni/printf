@@ -26,7 +26,7 @@ char *_putchar(va_list c, __attribute__((unused)) printing_format * format)
  * Return: On success the lenght of the string printed
  * -1 on failure
  */
-char *putstr(va_list c, __attribute__((unused))printing_format * format)
+char *_putstr(va_list c, __attribute__((unused))printing_format * format)
 {
 	char *s = va_arg(c, char *), *s2 = malloc(sizeof(char) * _strlen(s) + 1);
 
