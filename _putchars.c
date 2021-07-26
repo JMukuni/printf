@@ -1,4 +1,5 @@
 #include "holberton.h"
+
 /**
  * _putchar - writes the character c to stdout
  * @c: an arg_list containing the character to be printed
@@ -6,7 +7,7 @@
  * Return: On success 1.
  * On error, return -1
  */
-char *putchar(va_list c, __attribute_((unused)) printing_format * format)
+char *_putchar(va_list c, __attribute__((unused)) printing_format * format)
 {
 	char a = va_arg(c, int), *s = malloc(sizeof(char) * 2);
 
@@ -25,7 +26,7 @@ char *putchar(va_list c, __attribute_((unused)) printing_format * format)
  * Return: On success the lenght of the string printed
  * -1 on failure
  */
-char *putstr(va_list c, __attribute_((unused))printing_format * format)
+char *putstr(va_list c, __attribute__((unused))printing_format * format)
 {
 	char *s = va_arg(c, char *), *s2 = malloc(sizeof(char) * _strlen(s) + 1);
 

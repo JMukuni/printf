@@ -6,7 +6,7 @@
  * @format: the format the string must be returned with
  * Return: length of hex
  */
-char *putadress(va_list num, __attribute_((unused)) printing_format * format)
+char *putadress(va_list num, __attribute__((unused)) printing_format * format)
 {
 	unsigned long int n = va_arg(num, unsigned long int);
 	char *nums =  malloc(sizeof(char) * _numLen(n) * 2 + 3);
