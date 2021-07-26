@@ -12,6 +12,7 @@ typedef unsigned int bool;
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stddef.h>
 
 /**
  * struct printing_format - a struct for formating info
